@@ -1,0 +1,122 @@
+[
+  {
+    "id": "q001",
+    "category": "Fotoğraf Tarihi",
+    "subcategory": "İlkler",
+    "difficulty": "Orta",
+    "question": "Fotoğraf tarihinin ilk kalıcı görüntüsü kabul edilen 'View from the Window at Le Gras' hangi yöntemle elde edilmiştir?",
+    "choices": {"A":"Daguerreotype", "B":"Calotype", "C":"Heliography", "D":"Cyanotype", "E":"Autochrome"},
+    "answer": "C",
+    "explanation": "Joseph Nicéphore Niépce, ışığa duyarlı bitüm kaplı levha üzerinde uzun pozlama ile heliography yöntemini kullanmıştır.",
+    "sources": ["Harry Ransom Center", "Encyclopaedia Britannica"],
+    "tags": ["Niépce", "Heliography", "İlk fotoğraf"]
+  },
+  {
+    "id": "q002",
+    "category": "Fotoğraf Tarihi",
+    "subcategory": "Teknikler",
+    "difficulty": "Orta",
+    "question": "1839'da kamuoyuna duyurulan Daguerreotype yönteminin temel taşıyıcısı aşağıdakilerden hangisidir?",
+    "choices": {"A":"Kağıt negatif", "B":"Gümüş kaplı bakır plaka", "C":"Cam kolodyon levha", "D":"Selüloit rulo film", "E":"Dijital CCD sensör"},
+    "answer": "B",
+    "explanation": "Daguerreotype görüntüleri gümüş kaplı bakır plakalar üzerinde oluşur ve çoğaltılabilir negatif üretmez.",
+    "sources": ["The Metropolitan Museum of Art", "Britannica"],
+    "tags": ["Daguerre", "Daguerreotype"]
+  },
+  {
+    "id": "q003",
+    "category": "Fotoğraf Tarihi",
+    "subcategory": "Negatif-Pozitif",
+    "difficulty": "Kolay",
+    "question": "Calotype yöntemiyle fotoğraf tarihinde negatif-pozitif çoğaltma sisteminin temelini atan kişi kimdir?",
+    "choices": {"A":"Louis Daguerre", "B":"George Eastman", "C":"William Henry Fox Talbot", "D":"James Clerk Maxwell", "E":"Alfred Stieglitz"},
+    "answer": "C",
+    "explanation": "Talbot'un calotype yöntemi tek bir negatiften birden fazla pozitif baskı alınabilmesini sağlamıştır.",
+    "sources": ["Britannica", "The Met Museum"],
+    "tags": ["Talbot", "Calotype"]
+  },
+  {
+    "id": "q004",
+    "category": "Fotoğraf Tarihi",
+    "subcategory": "Kavramlar",
+    "difficulty": "Orta",
+    "question": "'Photography' terimini literatüre kazandıran ve cyanotype süreciyle de ilişkilendirilen bilim insanı kimdir?",
+    "choices": {"A":"Sir John Herschel", "B":"Nadar", "C":"Man Ray", "D":"Eadweard Muybridge", "E":"Robert Capa"},
+    "answer": "A",
+    "explanation": "Sir John Herschel, photography terimini kullanan ve sodyum tiosülfatla sabitleme gibi süreçlere katkı veren önemli bir bilim insanıdır.",
+    "sources": ["Royal Society", "Britannica"],
+    "tags": ["Herschel", "Photography", "Cyanotype"]
+  },
+  {
+    "id": "q005",
+    "category": "Fotoğraf Tarihi",
+    "subcategory": "Renkli Fotoğraf",
+    "difficulty": "Orta",
+    "question": "1861'de üç renkli filtre yöntemiyle ilk renkli fotoğraf gösterimini yapan bilim insanı kimdir?",
+    "choices": {"A":"James Clerk Maxwell", "B":"George Eastman", "C":"Louis Lumière", "D":"Ansel Adams", "E":"Edward Weston"},
+    "answer": "A",
+    "explanation": "Maxwell'in tartan kurdele görüntüsü, renkli fotoğrafın bilimsel temelleri açısından tarihsel önemdedir.",
+    "sources": ["James Clerk Maxwell Foundation", "Royal Society"],
+    "tags": ["Maxwell", "Renkli fotoğraf"]
+  },
+  {
+    "id": "q006",
+    "category": "Fotoğraf Tarihi",
+    "subcategory": "Kodak",
+    "difficulty": "Kolay",
+    "question": "1888'de Kodak kutu kamerayı piyasaya sürerek fotoğrafı geniş kitlelere ulaştıran girişimci kimdir?",
+    "choices": {"A":"Oskar Barnack", "B":"George Eastman", "C":"Edwin Land", "D":"Henri Cartier-Bresson", "E":"Richard Leach Maddox"},
+    "answer": "B",
+    "explanation": "George Eastman, Kodak kamerayla fotoğrafı profesyonel stüdyo pratiğinin dışına taşıyan isimlerden biridir.",
+    "sources": ["Kodak", "TIME"],
+    "tags": ["Eastman", "Kodak"]
+  },
+  {
+    "id": "q007",
+    "category": "Fotoğraf Tarihi",
+    "subcategory": "Teknikler",
+    "difficulty": "Zor",
+    "question": "Frederick Scott Archer'ın 1851'de geliştirdiği ıslak kolodyon yöntemi hangi taşıyıcıyla özdeşleşmiştir?",
+    "choices": {"A":"Cam levha", "B":"Kalay levha", "C":"Selüloit film", "D":"Piksel tabanlı sensör", "E":"Kağıt rulo"},
+    "answer": "A",
+    "explanation": "Wet collodion süreci cam levha üzerinde yüksek ayrıntı ve görece kısa pozlama olanağı sağlamıştır.",
+    "sources": ["The Met Museum", "Britannica"],
+    "tags": ["Wet collodion", "Archer"]
+  },
+  {
+    "id": "q008",
+    "category": "Fotoğraf Tarihi",
+    "subcategory": "Akımlar",
+    "difficulty": "Orta",
+    "question": "Pictorialism akımı fotoğrafı özellikle hangi yaklaşımla meşrulaştırmaya çalışmıştır?",
+    "choices": {"A":"Salt arşiv belgesi olarak", "B":"Resimsel ve sanatsal ifade aracı olarak", "C":"Yalnızca haber fotoğrafı olarak", "D":"Bilimsel ölçüm tekniği olarak", "E":"Dijital veri formatı olarak"},
+    "answer": "B",
+    "explanation": "Pictorialism, fotoğrafın estetik ve sanatsal yönünü vurgulayarak onu güzel sanatlar alanına yaklaştırmıştır.",
+    "sources": ["The Met Museum", "MoMA"],
+    "tags": ["Pictorialism", "Fotoğraf akımları"]
+  },
+  {
+    "id": "q009",
+    "category": "Fotoğraf Tarihi",
+    "subcategory": "Dijital Fotoğraf",
+    "difficulty": "Orta",
+    "question": "Dijital fotoğraf makinelerinde ışığı elektronik sinyale çeviren temel bileşen aşağıdakilerden hangisidir?",
+    "choices": {"A":"Vizör lastiği", "B":"Görüntü sensörü", "C":"Deklanşör kablosu", "D":"Film kaseti", "E":"Banyo tankı"},
+    "answer": "B",
+    "explanation": "CCD veya CMOS sensörler ışığı elektriksel sinyale dönüştürerek dijital görüntünün temelini oluşturur.",
+    "sources": ["Britannica", "Kodak"],
+    "tags": ["Dijital fotoğraf", "Sensör"]
+  },
+  {
+    "id": "q010",
+    "category": "Fotoğraf Tarihi",
+    "subcategory": "Fotojurnalizm",
+    "difficulty": "Orta",
+    "question": "Magnum Photos'un kurucuları arasında aşağıdaki isimlerden hangisi yer alır?",
+    "choices": {"A":"Henri Cartier-Bresson", "B":"Cindy Sherman", "C":"Nan Goldin", "D":"Jeff Wall", "E":"Andreas Gursky"},
+    "answer": "A",
+    "explanation": "Henri Cartier-Bresson, Robert Capa, David Seymour ve George Rodger Magnum Photos'un kurucu isimleri arasındadır.",
+    "sources": ["Magnum Photos", "ICP"],
+    "tags": ["Magnum", "Cartier-Bresson"]
+  }
+]
