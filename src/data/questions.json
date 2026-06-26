@@ -1,61 +1,7 @@
 [
-  {
-    "id": "q0001",
-    "category": "Fotoğraf Tarihi",
-    "subcategory": "Fotoğraf Tarihi",
-    "difficulty": "Orta",
-    "questionType": "Çıkmış Soru Mantığı",
-    "examLevel": "Yüksek Lisans",
-    "sourceType": "Dosya / Akademik hazırlık",
-    "question": "Koyo Kouoh sanat dünyasında neden önemlidir?",
-    "choices": {
-      "A": "İlk NFT sanatçısıdır.",
-      "B": "İlk Afrikalı kadın Venedik Bienali sanat direktörüdür.",
-      "C": "Magnum kurucusudur.",
-      "D": "Turner Prize sahibidir.",
-      "E": "Fotoğraf makinesi mucididir."
-    },
-    "answer": "B",
-    "explanation": "Doğru cevap İlk Afrikalı kadın Venedik Bienali sanat direktörüdür. seçeneğidir; bu bilgi fotoğraf tarihindeki kişi, eser, kurum veya tarihsel süreçlerle ilişkilidir.",
-    "sources": [
-      "Yüksek Lisan Soru Havuzu(2).docx",
-      "Beaumont Newhall - The History of Photography",
-      "The Met Museum / MoMA kaynakları"
-    ],
-    "tags": [
-      "Fotoğraf Tarihi",
-      "Koyo",
-      "Kouoh"
-    ]
-  },
-  {
-    "id": "q0002",
-    "category": "Genel Kültür",
-    "subcategory": "Genel Kültür",
-    "difficulty": "Kolay",
-    "questionType": "Çıkmış Soru Mantığı",
-    "examLevel": "Yüksek Lisans",
-    "sourceType": "Dosya / Akademik hazırlık",
-    "question": "László Krasznahorkai'nin aşağıdaki eserlerinden hangisi aynı zamanda yönetmen Béla Tarr tarafından sinemaya uyarlanmıştır?",
-    "choices": {
-      "A": "Blindness",
-      "B": "Satantango",
-      "C": "White Teeth",
-      "D": "Normal People",
-      "E": "Never Let Me Go"
-    },
-    "answer": "B",
-    "explanation": "Doğru cevap Satantango seçeneğidir; soru genel kültür, sanat, edebiyat, sinema veya kültür tarihi bilgisini ölçer.",
-    "sources": [
-      "Yüksek Lisan Soru Havuzu(2).docx",
-      "Genel kültür, edebiyat ve sinema kaynakları",
-      "Nobel / Academy / festival arşivleri"
-    ],
-    "tags": [
-      "Genel Kültür",
-      "László",
-      "Krasznahorkai",
-      "Béla"
-    ]
-  }
+  {"id":"q001","category":"Fotoğraf Tekniği","subcategory":"Pozlama Üçgeni","difficulty":"Kolay","question":"Pozlama üçgenini oluşturan temel üç değişken aşağıdakilerden hangisidir?","choices":{"A":"ISO, diyafram, enstantane","B":"Kadraj, perspektif, kontrast","C":"Odak uzaklığı, beyaz ayarı, histogram","D":"Netlik, keskinlik, doygunluk","E":"Tripod, filtre, flaş"},"answer":"A","explanation":"Pozlama üçgeni, görüntünün ışık miktarını belirleyen ISO duyarlılığı, diyafram açıklığı ve enstantane süresinden oluşur.","sources":["Ansel Adams - The Camera","Kodak Photography Basics"],"tags":["ISO","Diyafram","Enstantane"]},
+  {"id":"q002","category":"Genel Kültür","subcategory":"Edebiyat","difficulty":"Orta","question":"Aşağıdaki yazarlardan hangisi Nobel Edebiyat Ödülü kazanmıştır?","choices":{"A":"Yaşar Kemal","B":"Oğuz Atay","C":"Orhan Pamuk","D":"Ahmet Hamdi Tanpınar","E":"Kemal Tahir"},"answer":"C","explanation":"Orhan Pamuk 2006 Nobel Edebiyat Ödülü'nü kazanmıştır.","sources":["Yüksek Lisan Soru Havuzu(2).docx","Nobel Prize official"],"tags":["Nobel","Orhan Pamuk"]},
+  {"id":"q003","category":"Genel Kültür","subcategory":"Edebiyat","difficulty":"Kolay","question":"Benim Adım Kırmızı adlı romanın yazarı kimdir?","choices":{"A":"Elif Şafak","B":"Hasan Ali Toptaş","C":"Orhan Pamuk","D":"İhsan Oktay Anar","E":"Buket Uzuner"},"answer":"C","explanation":"Benim Adım Kırmızı, Orhan Pamuk'un romanıdır.","sources":["Yüksek Lisan Soru Havuzu(2).docx","Orhan Pamuk bibliography"],"tags":["Orhan Pamuk","Benim Adım Kırmızı"]},
+  {"id":"q004","category":"Genel Kültür","subcategory":"Edebiyat","difficulty":"Kolay","question":"Aşağıdaki eserlerden hangisi Ahmet Hamdi Tanpınar'a aittir?","choices":{"A":"Saatleri Ayarlama Enstitüsü","B":"Tutunamayanlar","C":"İnce Memed","D":"Sevgili Arsız Ölüm","E":"Huzursuzluk"},"answer":"A","explanation":"Saatleri Ayarlama Enstitüsü, Ahmet Hamdi Tanpınar'ın en bilinen romanlarındandır.","sources":["Yüksek Lisan Soru Havuzu(2).docx","Türk edebiyatı kaynakları"],"tags":["Tanpınar","Saatleri Ayarlama Enstitüsü"]},
+  {"id":"q005","category":"Genel Kültür","subcategory":"Sinema","difficulty":"Kolay","question":"Cannes Film Festivali'nin en büyük ödülü hangisidir?","choices":{"A":"Altın Küre","B":"Altın Palmiye","C":"Altın Ayı","D":"Altın Aslan","E":"Altın Kamera"},"answer":"B","explanation":"Cannes Film Festivali'nin en büyük ödülü Altın Palmiye'dir.","sources":["Yüksek Lisan Soru Havuzu(2).docx","Festival de Cannes"],"tags":["Cannes","Altın Palmiye"]}
 ]
