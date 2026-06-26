@@ -20,7 +20,7 @@ function App() {
     iban: '',
     paymentText: 'IBAN ve ödeme açıklaması yönetici panelinden girilecek.'
   }));
-  const examQuestions = useMemo(() => questions.slice(0, 10), []);
+  const examQuestions = useMemo(() => questions.slice(0, 50), []);
   const current = examQuestions[index];
   const correct = examQuestions.filter(q => answers[q.id] === q.answer).length;
   const wrongList = examQuestions.filter(q => answers[q.id] !== q.answer);
@@ -41,7 +41,7 @@ function App() {
     doc.setFillColor(37,99,235); doc.rect(14,156,Math.max(5,success*1.4),8,'F'); doc.setDrawColor(210); doc.rect(14,156,140,8);
     doc.setFontSize(16); doc.text('Yanlış / Boş Sorular',14,182); let y=194;
     wrongList.forEach((q,i)=>{ if(y>260){doc.addPage(); y=20;} doc.setFontSize(10); doc.text(`${i+1}. ${q.question.substring(0,95)}`,14,y); y+=8; doc.text(`Doğru Cevap: ${q.answer}) ${q.choices[q.answer].substring(0,80)}`,14,y); y+=8; doc.text(`Açıklama: ${q.explanation.substring(0,100)}`,14,y); y+=8; doc.text(`Kaynak: ${q.sources.join(', ').substring(0,100)}`,14,y); y+=12; });
-    doc.addPage(); doc.setFontSize(16); doc.text('Çalışma Önerisi',14,24); doc.setFontSize(12); const advice=success>=80?'Güçlü performans. Zor seviye sorularla ilerle.':success>=60?'Orta seviye başarı. Yanlış konularda bilgi kartı çalış.':'Temel konuları tekrar et. Önce fotoğraf tarihi ilkler ve teknikler.'; doc.text(advice,14,40,{maxWidth:180}); doc.text('Öncelikli konular: Niépce, Daguerre, Talbot, Herschel, Maxwell, Eastman.',14,58,{maxWidth:180}); doc.save('photon-akademik-rapor.pdf');
+    doc.addPage(); doc.setFontSize(16); doc.text('Çalışma Önerisi',14,24); doc.setFontSize(12); const advice=success>=80?'Güçlü performans. Zor seviye sorularla ilerle.':success>=60?'Orta seviye başarı. Yanlış konularda bilgi kartı çalış.':'Temel konuları tekrar et. Önce fotoğraf tarihi ilkler ve teknikler.'; doc.text(advice,14,40,{maxWidth:180}); doc.text('Öncelikli konular: teknik temeller, fotoğraf tarihi, akımlar, sanatçılar ve genel kültür.',14,58,{maxWidth:180}); doc.save('photon-akademik-rapor.pdf');
   };
 
   if(page==='auth') return <main className="shell"><Header/><section className="panel"><h1>Üyelik Sistemi</h1><p className="lead">Üye girişi, misafir girişi ve yönetici paneli bu ekrandan açılır. Beni hatırla seçilirse bilgiler bu cihazda saklanır.</p><form className="form" onSubmit={login}><input name="name" placeholder="Ad Soyad" defaultValue="Sinan Targay"/><input name="email" placeholder="E-posta"/><input name="password" type="password" placeholder="Şifre"/><input name="adminCode" placeholder="Yönetici kodu (varsa)"/><label className="check"><input name="remember" type="checkbox" defaultChecked/> Beni hatırla</label><button>Giriş / Kayıt</button></form><button className="ghost" onClick={guest}>Misafir Girişi</button><p className="hint">Demo yönetici kodu: PHOTON2026</p></section></main>;
