@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { jsPDF } from 'jspdf';
 import './style.css';
@@ -8,10 +8,57 @@ function load(key, fallback) {
   try { return JSON.parse(localStorage.getItem(key)) || fallback; } catch { return fallback; }
 }
 
+function shuffle(list) {
+  return [...list].sort(() => Math.random() - 0.5);
+}
+
+function buildExam(pool, size = 50) {
+  const blueprint = [
+    ['Fotoğraf Tekniği', 10],
+    ['Görsel Okuryazarlık', 6],
+    ['Fotoğraf Tarihi', 8],
+    ['Fotoğraf Akımları', 7],
+    ['Fotoğraf Sanatçıları', 5],
+    ['Genel Kültür', 11],
+    ['Mülakat ve Sanatsal Vizyon', 3]
+  ];
+  const used = new Set();
+  const selected = [];
+  blueprint.forEach(([category, count]) => {
+    shuffle(pool.filter(q => q.category === category)).slice(0, count).forEach(q => {
+      if (!used.has(q.id)) { used.add(q.id); selected.push(q); }
+    });
+  });
+  shuffle(pool.filter(q => !used.has(q.id))).forEach(q => {
+    if (selected.length < size) { used.add(q.id); selected.push(q); }
+  });
+  const groups = selected.reduce((acc, q) => {
+    const key = q.category || 'Diğer';
+    acc[key] = acc[key] || [];
+    acc[key].push(q);
+    return acc;
+  }, {});
+  Object.keys(groups).forEach(k => groups[k] = shuffle(groups[k]));
+  const ordered = [];
+  let lastCategory = '';
+  while (ordered.length < selected.length) {
+    const choices = Object.keys(groups).filter(k => groups[k].length && k !== lastCategory);
+    const fallback = Object.keys(groups).filter(k => groups[k].length);
+    const available = choices.length ? choices : fallback;
+    available.sort((a,b) => groups[b].length - groups[a].length);
+    const top = available.slice(0, Math.min(3, available.length));
+    const category = top[Math.floor(Math.random() * top.length)];
+    ordered.push(groups[category].pop());
+    lastCategory = category;
+  }
+  return ordered.slice(0, size);
+}
+
 function App() {
   const [page, setPage] = useState('home');
   const [index, setIndex] = useState(0);
   const [answers, setAnswers] = useState({});
+  const [examQuestions, setExamQuestions] = useState(() => buildExam(questions, 50));
   const [user, setUser] = useState(() => load('photon_user', null));
   const [settings, setSettings] = useState(() => load('photon_settings', {
     paymentTitle: 'Ödeme / IBAN Bilgileri',
@@ -21,7 +68,6 @@ function App() {
     paymentText: 'IBAN ve ödeme açıklaması yönetici panelinden girilecek.'
   }));
 
-  const examQuestions = useMemo(() => questions.slice(0, 50), []);
   const current = examQuestions[index];
   const correct = examQuestions.filter(q => answers[q.id] === q.answer).length;
   const wrongList = examQuestions.filter(q => answers[q.id] !== q.answer);
@@ -31,7 +77,7 @@ function App() {
 
   const Header = () => <nav className="nav"><b>PHOTON</b><span>{user ? `${user.name} · ${user.role}` : 'Fotoğraf Yüksek Lisans Hazırlık'}</span><div className="navActions"><button className="small ghost" onClick={() => setPage('home')}>Ana Sayfa</button>{user ? <button className="small ghost" onClick={logout}>Çıkış</button> : <button className="small" onClick={() => setPage('auth')}>Giriş / Üyelik</button>}</div></nav>;
 
-  const startExam = () => { setAnswers({}); setIndex(0); setPage('exam'); };
+  const startExam = () => { setExamQuestions(buildExam(questions, 50)); setAnswers({}); setIndex(0); setPage('exam'); };
   const openExam = () => { user ? startExam() : setPage('auth'); };
   const nextQuestion = () => {
     if (isGuest && index >= guestLimit - 1) { setPage('auth'); return; }
@@ -56,7 +102,7 @@ function App() {
 
   if(page==='auth') return <main className="shell"><Header/><section className="panel"><h1>Üyelik Sistemi</h1><p className="lead">Misafir kullanıcılar 50 soruluk sınavın yalnızca ilk 5 sorusunu çözebilir. Sınava devam etmek ve tam rapor almak için üyelik girişi yap.</p><form className="form" onSubmit={login}><input name="name" placeholder="Ad Soyad" defaultValue="Sinan Targay"/><input name="email" placeholder="E-posta"/><input name="password" type="password" placeholder="Şifre"/><input name="adminCode" placeholder="Yönetici kodu (varsa)"/><label className="check"><input name="remember" type="checkbox" defaultChecked/> Beni hatırla</label><button>Giriş / Kayıt</button></form><button className="ghost" onClick={guest}>Misafir Girişi</button><div className="paymentBox"><h3>{settings.paymentTitle}</h3><p><b>Hesap Sahibi:</b> {settings.accountHolder || 'Henüz girilmedi'}</p><p><b>Banka:</b> {settings.bankName || 'Henüz girilmedi'}</p><p><b>IBAN:</b> {settings.iban || 'Henüz girilmedi'}</p><p>{settings.paymentText}</p></div><p className="hint">Demo yönetici kodu: PHOTON2026</p></section></main>;
 
-  if(page==='home') return <main className="shell"><Header/><section className="hero"><p className="badge">Marmara GSF Fotoğraf YL</p><h1>Akademik kaynaklı online sınav platformu</h1><p className="lead">Akademik kaynaklı sorular, açıklamalı cevaplar ve PDF raporlarla hazırlığını ölç. Ücretsiz dene, tam erişim için üyeliğini başlat.</p><button className="examCard" onClick={openExam}><span className="examKicker">50 Soruluk Tam Deneme</span><strong>Marmara Fotoğraf YL Sınav Provası</strong><em>Misafir girişte ilk 5 soru açık. Tam sınav için üyelik gerekir.</em></button>{!user && <div className="paymentBox"><h3>Üyelik Girişi ve Tam Erişim</h3><p>Misafir olarak ilk 5 soruyu deneyebilirsin. 50 soruluk sınavın tamamı, açıklamalar ve PDF rapor üyelikle açılır.</p><button onClick={() => setPage('auth')}>Üyelik / Giriş</button></div>}<div className="stats"><div><strong>{user?'Aktif':'Kapalı'}</strong><span>Oturum</span></div><div><strong>PDF</strong><span>Rapor</span></div><div><strong>Kaynaklı</strong><span>Soru Havuzu</span></div></div><div className="actions"><button onClick={openExam}>Hemen Gir</button><button className="ghost" onClick={()=>setPage('auth')}>Üyelik / Giriş</button><button className="ghost" onClick={()=>setPage('admin')}>Yönetici Paneli</button></div></section></main>;
+  if(page==='home') return <main className="shell"><Header/><section className="hero"><p className="badge">Marmara GSF Fotoğraf YL</p><h1>Akademik kaynaklı online sınav platformu</h1><p className="lead">Akademik kaynaklı sorular, açıklamalı cevaplar ve PDF raporlarla hazırlığını ölç. Ücretsiz dene, tam erişim için üyeliğini başlat.</p><button className="examCard" onClick={openExam}><span className="examKicker">50 Soruluk Tam Deneme</span><strong>Marmara Fotoğraf YL Sınav Provası</strong><em>Her girişte dengeli konu dağılımı ve yeni soru sıralamasıyla başlar.</em></button>{!user && <div className="paymentBox"><h3>Üyelik Girişi ve Tam Erişim</h3><p>Misafir olarak ilk 5 soruyu deneyebilirsin. 50 soruluk sınavın tamamı, açıklamalar ve PDF rapor üyelikle açılır.</p><button onClick={() => setPage('auth')}>Üyelik / Giriş</button></div>}<div className="stats"><div><strong>{user?'Aktif':'Kapalı'}</strong><span>Oturum</span></div><div><strong>PDF</strong><span>Rapor</span></div><div><strong>Dengeli</strong><span>Sınav Dağılımı</span></div></div><div className="actions"><button onClick={openExam}>Hemen Gir</button><button className="ghost" onClick={()=>setPage('auth')}>Üyelik / Giriş</button><button className="ghost" onClick={()=>setPage('admin')}>Yönetici Paneli</button></div></section></main>;
 
   if(page==='exam') return <main className="shell"><Header/><section className="panel"><p className="badge">Soru {index+1} / {examQuestions.length} · {current.category} · {current.difficulty}</p>{isGuest && <p className="hint">Misafir deneme hakkı: {Math.min(index+1, guestLimit)} / {guestLimit}. Devamı için üyelik gerekir.</p>}<div className="progress"><span style={{width:`${((index+1)/examQuestions.length)*100}%`}} /></div><h2>{current.question}</h2><div className="options">{Object.entries(current.choices).map(([key,value])=><button key={key} className={answers[current.id]===key?'selected':''} onClick={()=>setAnswers({...answers,[current.id]:key})}><b>{key})</b> {value}</button>)}</div><div className="actions"><button className="ghost" disabled={index===0} onClick={()=>setIndex(index-1)}>Geri</button>{index<examQuestions.length-1?<button onClick={nextQuestion}>{isGuest && index>=guestLimit-1?'Üyelikle Devam Et':'İleri'}</button>:<button onClick={()=>setPage('result')}>Sonucu Gör</button>}</div></section></main>;
 
