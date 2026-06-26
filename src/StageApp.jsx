@@ -1,8 +1,9 @@
 import React,{useState}from'react';
 import baseQuestions from './data/questions.json';
 import techQuestions from './data/techniqueExposurePack.js';
+import lightQuestions from './data/techniqueLightColorPack.js';
 import './style.css';
-const questions=[...baseQuestions,...techQuestions];
+const questions=[...baseQuestions,...techQuestions,...lightQuestions];
 const load=(k,f)=>{try{return JSON.parse(localStorage.getItem(k))||f}catch{return f}};
 const sh=a=>[...a].sort(()=>Math.random()-.5);
 const ST={easy:['Kolay Seviye Temel Tarama','Temel bilgi ve güven kazanma','Kolay'],medium:['Orta Seviye Akademik Kavrama','Kavram, sanatçı ve eser ilişkisi','Orta'],hard:['Zor Seviye Yüksek Lisans Provası','Seçici, kuramsal ve teknik sorular','Zor'],final:['Final Sınavı','Eksik alanlara ve zor sorulara göre karma final','Final']};
