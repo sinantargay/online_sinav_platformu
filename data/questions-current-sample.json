@@ -1,0 +1,50 @@
+[
+  {
+    "id": "PH-GUN-0001",
+    "question": "2026 Venedik Bienali’nin ana sergi teması aşağıdakilerden hangisidir?",
+    "options": ["Foreigners Everywhere", "In Minor Keys", "The Milk of Dreams", "Il Palazzo Enciclopedico", "Future Memory"],
+    "correctIndex": 1,
+    "category": "güncel sanat",
+    "subCategory": "bienal",
+    "difficulty": "orta",
+    "probability": 5,
+    "explanation": "61. Venedik Bienali’nin ana teması Koyo Kouoh tarafından belirlenen In Minor Keys olarak duyurulmuştur.",
+    "source": "La Biennale di Venezia resmi duyuruları ve güncel kültür-sanat haberleri.",
+    "verified": true,
+    "status": "active",
+    "createdAt": "2026-06-26",
+    "updatedAt": "2026-06-26"
+  },
+  {
+    "id": "PH-FOT-0001",
+    "question": "PHotoESPAÑA 2026’nın genel teması aşağıdakilerden hangisidir?",
+    "options": ["Reimagining", "New Objectivity", "After Nature", "Archive Fever", "Human Condition"],
+    "correctIndex": 0,
+    "category": "güncel fotoğraf",
+    "subCategory": "fotoğraf festivali",
+    "difficulty": "orta",
+    "probability": 4,
+    "explanation": "PHotoESPAÑA 2026 Reimagining teması altında düzenlenmiştir.",
+    "source": "PHotoESPAÑA 2026 program duyuruları ve güvenilir kültür-sanat haberleri.",
+    "verified": true,
+    "status": "active",
+    "createdAt": "2026-06-26",
+    "updatedAt": "2026-06-26"
+  },
+  {
+    "id": "PH-KUR-0001",
+    "question": "Walter Benjamin’in fotoğraf ve sanat kuramı açısından temel kavramlarından biri hangisidir?",
+    "options": ["Punctum", "Aura", "Habitus", "Simülakr", "Decisive Moment"],
+    "correctIndex": 1,
+    "category": "fotoğraf kuramı",
+    "subCategory": "modern sanat kuramı",
+    "difficulty": "orta",
+    "probability": 5,
+    "explanation": "Benjamin’in aura kavramı, sanat eserinin tekilliği ve yeniden üretimle değişen statüsünü açıklamak için kullanılır.",
+    "source": "Walter Benjamin, Teknik Olarak Yeniden Üretilebilirlik Çağında Sanat Yapıtı.",
+    "verified": true,
+    "status": "active",
+    "createdAt": "2026-06-26",
+    "updatedAt": "2026-06-26"
+  }
+]
